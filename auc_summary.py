@@ -1,50 +1,11 @@
 #!/home/paula/anaconda3/envs/my-rdkit-env/bin/python3.7
 # ----------------------------------------------------------
-# Copyright (C) 2016 PHARAMACELERA S.L.
-# All rights reserved.
-# 
-# PHARMACELERA CONFIDENTIAL: DO NOT COPY OR DISTRIBUTE
-# 
-# File: pharmGen3D.py
-#
-# Created on 29/08/2017
-# ----------------------------------------------------------
-#
-# Molecular 3D structure generator from 2D sdf
-# Accepted input type: sdf, SMILES, InChI
-# Options: -Protonation State
-#	   -Generate all isomers
-#          -Generate all tautomers 
-# 
-# Example:
-#
-# pharmGen3D.py -i file_input -o file_output.sdf
-# -t number of threads (if not specify 1) -ps 7.4 or neutral
-# -st (or -st_ou) (optional) -tm (optional) -nooriginalproperties (optional)
-# -nostlimit (optional, if present change the isomers limit from 128 to 1024)
-# -naf (optional, if set the molecules with more than 128 atoms or 74 heavy 
-# atoms will be excluded) -elementfilter (optional, if set all molecule with
-# element that are not parameterizable will be excluded)
-# [C; N; O; F; P; S; Cl; Br; I; H]
+# AUC summary generation
 # ----------------------------------------------------------
 # ----------------------------------------------------------
 import sys
-from rdkit import Chem
-from rdkit.Chem import AllChem
-from rdkit.Chem import SaltRemover
-from rdkit import RDLogger
-from rdkit.Chem.PropertyMol import * 
-from concurrent import futures
-import newMetal
-import protonation
-import scoringTautomers
-from limitedEnumerateStereoisomers import EnumerateStereoisomers, StereoEnumerationOptions
-#import progressbar
 import os
 import argparse
-import copy
-import time
-from rdkit import rdBase
 
 #----------------------------------- Main function --------------------------------------
 sys.path.insert(0, './support')
